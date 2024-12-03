@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness and Reporting Web Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        h1, h2 {
+            color: #FF6347; /* Tomato color */
+        }
+        main {
+            padding: 20px;
+            display: none; /* Hide all sections initially */
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+        form {
+            margin: 20px;
+            padding: 20px;
+            background-color: #e7f1ff;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #FF6347; /* Tomato color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FF4500; /* OrangeRed color */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Phishing Awareness and Reporting Web Application</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('registration')">Register</a></li>
+                <li><a href="#" onclick="showSection('login')">Login</a></li>
+                <li><a href="#" onclick="showSection('reporting')">Report Phishing</a></li>
+                <li><a href="#" onclick="showSection('tester-machine')">Tester Machine</a></li>
+                <li><a href="#" onclick="showSection('phishing')">Phishing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <h2>Welcome to Phishing Awareness</h2>
+        <p>Phishing is a common cybersecurity threat where attackers impersonate legitimate entities to steal sensitive information. This application aims to educate users on recognizing phishing attempts and provides a platform for reporting suspected phishing incidents.</p>
+    </main>
+
+    <main id="registration">
+        <h2>Register</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="photo">Victim Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password (8 characters minimum):</label>
+            <input type="password" id="password" name="password" required minlength="8">
+
+            <label for="mobile">Mobile Number (with country code):</label>
+            <input type="tel" id="mobile" name="mobile" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="police-station">Nearest Police Station:</label>
+            <input type="text" id="police-station" name="police-station" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </main>
+
+    <main id="login">
+        <h2>Login</h2>
+        <form action="#" method="post">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="login-username" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <a href="#" onclick="showSection('forgot-password')">Forgot Password?</a>
+    </main>
+
+    <main id="forgot-password">
+        <h2>Forgot Password</h2>
+        <p>Please enter your email address to recover your password.</p>
+        <form action="#" method="post">
+            <label for="forgot-email">Email ID:</label>
+            <input type="email" id="forgot-email" name="forgot-email" required>
+
+            <button type="submit">Recover Password</button>
+        </form>
+        <a href="#" onclick="showSection('login')">Back to Login</a>
+    </main>
+
+    <main id="reporting">
+        <h2>Report Phishing Attempt</h2>
+        <form action="#" method="post">
+            <label for="report-type">Type of Phishing:</label>
+            <select id="report-type" name="report-type" required>
+                <option value="">Select One</option>
+                <option value="email">Email Phishing</option>
+                <option value="sms">SMS Phishing (Smishing)</option>
+                <option value="website">Website Phishing</option>
+                <option value="social-media">Social Media Phishing</option>
+                <option value="phone">Phone Phishing (Vishing)</option>
+            </select>
+
+            <label for="phishing-url">Phishing URL:</label>
+            <input type="url" id="phishing-url" name="phishing-url" required>
+
+            <label for="details">Details of the Phishing Attempt:</label>
+            <textarea id="details" name="details" rows="5" required></textarea>
+
+            <label for="victim-email-report">Victim's Email (optional):</label>
+            <input type="email" id="victim-email-report" name="victim-email">
+
+            <label for="reporter-name">Your Name:</label>
+            <input type="text" id="reporter-name" name="reporter-name" required>
+
+            <label for="reporter-contact">Your Contact Number:</label>
+            <input type="tel" id="reporter-contact" name="reporter-contact" required>
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </main>
+
+    <main id="tester-machine">
+        <h2>Tester Machine</h2>
+        <p>Use the predefined link below to test for phishing attempts:</p>
+        <a href="https://www.virustotal.com/gui/home/upload" target="_blank">Test with VirusTotal</a>
+    </main>
+
+    <main id="phishing">
+        <h2>Phishing Links</h2>
+        <p>Select a phishing simulation page:</p>
+        <ul>
+            <li><a href="https://fakefacebook.com" target="_blank">Fake Facebook Login</a></li>
+            <li><a href="https://fakeinstagram.com" target="_blank">Fake Instagram Login</a></li>
+            <li><a href="https://faketwitter.com" target="_blank">Fake Twitter Login</a></li>
+            <li><a href="mailto:fakeemail@example.com">Fake Email Phishing</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>By:- ABHILASH SHARMA (BETN1CS21136)</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('main');
+            sections.forEach(section => section.style.display = 'none');
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Show home section by default
+        showSection('home');
+    </script>
+</body>
+</html>
